@@ -47,22 +47,27 @@
 			var canvas_height = 500;
 			var padding = 30; //for chart edges
 
-			var dataset = [30, 100, 730, 1, 310, 413, 292, 103, 634, 625];
+			var dataset = [1.0, 0.4, 0.2, 0.23, -0.7, 0.9, -0.23, -0.86];
+			// var dataset = [30, 100, 730, 1, 310, 413, 292, 103, 634, 625];
 
-			var xScale = d3.scale.linear() //scale for the x axis
+			//initializing the scale for the x axis
+			var xScale = d3.scale.linear()
 								 .domain([-1, d3.max(dataset)])
 								 .range([padding, canvas_width-padding]);
 
+			//initializing the xAxis
 			var xAxis = d3.svg.axis()
 							  .scale(xScale)
 							  .orient("bottom")
-							  //.ticks(2);
+							  .ticks(2);
 
+			//initilizing canvas svg object
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", canvas_width)
 						.attr("height", canvas_height);
 
+			//creating each circle datapoint
 			svg.selectAll("circle")
 			   .data(dataset)
 			   .enter()
@@ -72,10 +77,23 @@
 			   .attr("r", 10)
 			   .attr("fill", function(d) {return "rgba(0, 255, 0, 0.5)"});
 
+			//creating labels for each circle datapoint
+			svg.selectAll("text")
+   			   .data(dataset)
+  			   .enter()
+   			   .append("text")
+   			   .text(function(d) {return "Hillary";})
+   			   .attr("x", function(d) {return xScale(d)- 15})
+   			   .attr("y", function(d) {return canvas_height/2 - 15})
+   			   .attr("font-family", "sans-serif")
+   			   .attr("font-size", "11px");
+
+			//calling and creating the axis
 			svg.append("g")
 			   .attr("class", "axis")
 			   .attr("transform", "translate(0," + (canvas_height/2 + 20) + ")")
     		   .call(xAxis);
+
 
 
 		</script>
