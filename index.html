@@ -39,10 +39,11 @@
 			var dataset = [30, 100, 730, 1, 310, 413, 292, 103, 634, 625];
 
 			var xScale = d3.scale.linear() //scale for the x axis
-								 .domain(-1, 1);
-								 .range(padding, canvas_width);
+								 .domain([-1, d3.max(dataset)])
+								 .range([padding, canvas_width-padding]);
 
 			var xAxis = d3.svg.axis()
+							  .scale(xScale)
 							  .orient("bottom")
 							  .ticks(3);
 
@@ -55,7 +56,7 @@
 			   .data(dataset)
 			   .enter()
 			   .append("circle")
-			   .attr("cx", function(d) {return d;}) //expand on this
+			   .attr("cx", function(d) {return xScale(d);}) //expand on this
 			   .attr("cy", function (d) {return canvas_height/2;})
 			   .attr("r", 10)
 			   .attr("fill", function(d) {return "rgba(0, 255, 0, 0.5)"});
