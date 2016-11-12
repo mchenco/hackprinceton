@@ -1,23 +1,12 @@
-var myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello World';
-
 alert("hello!");
 
-d3.select("body")
-  .append("svg")
-  .attr("width", 50)
-  .attr("height", 50)
-  .append("circle")
-  .attr("cx", 25)
-  .attr("cy", 25)
-  .attr("r", 25)
-  .style("fill", "purple");
-
-var theData = [ 1, 2, 3 ]
-
-var p = d3.select("body").selectAll("p")
-		  .data(theData)
-		  .enter()
-		  .append("p")
-		  .text("hello ");
-
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
