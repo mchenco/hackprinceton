@@ -6,6 +6,7 @@
 
 	<!-- references d3 js library -->
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="test.txt"></script>
 
 	<!-- css styles -->
 	<style type="text/css">
@@ -53,9 +54,12 @@
 			<button type = "submit" class = "btn btn-default">Submit</button>
 		</form>
 
+		
+
 		<!-- calls the d3 library, written in javascript -->
 		<script type = "text/javascript">
-			//parse data
+			
+			//TRYING TO PARSE DATA HERE
 
 			// $.ajax({
 			// 	type: 'GET',
@@ -65,34 +69,35 @@
 			// 		var dataset = ;
 			// 	}
 			// })
+						// $.get( "Guardian_API.py", function(data){
+			// 		alert("Data Loaded: " + data);
+			// 	}
+			// )
 
-			// var raw_data = //this is where the HTML GET request data will go;
-			// 	dataset = JSON.parse(raw_data);
 
-			// test_data = {'iceland': {'occurrances': 64, 'sentiment': 0.03712}, 'merkel': {'occurrances': 79, 'sentiment': -0.13024999999999998}, 'clinton': {'occurrances': 525, 'sentiment': -0.04008000000000002}, 'trump': {'occurrances': 710, 'sentiment': 0.015139999999999997}, 'interest%20rates': {'occurrances': 263, 'sentiment': 0.24703}};
+			// test_data = {"iceland": {"occurrances": 64, "sentiment": {"news": 0.03712, "twitter": 0.2964818577777777}}, "merkel": {"occurrances": 79, "sentiment": {"news": -0.13024999999999998, "twitter": 0.17112578469135806}}, "clinton": {"occurrances": 525, "sentiment": {"news": -0.16593, "twitter": 0.1170851114951989}}, "trump": {"occurrances": 710, "sentiment": {"news": -0.0018600000000000005, "twitter": 0.25051745051321295}}, "interest%20rates": {"occurrances": 263, "sentiment": {"news": 0.24703000000000008, "twitter": 0.1367785520634921}}};
 
-			test_data = {"iceland": {"occurrances": 64, "sentiment": {"news": 0.03712, "twitter": 0.2964818577777777}}, "merkel": {"occurrances": 79, "sentiment": {"news": -0.13024999999999998, "twitter": 0.17112578469135806}}, "clinton": {"occurrances": 525, "sentiment": {"news": -0.16593, "twitter": 0.1170851114951989}}, "trump": {"occurrances": 710, "sentiment": {"news": -0.0018600000000000005, "twitter": 0.25051745051321295}}, "interest%20rates": {"occurrances": 263, "sentiment": {"news": 0.24703000000000008, "twitter": 0.1367785520634921}}};
+			
+			// //accesses first element in dictionary
+			// var key_array = [];
+			// for (i = 0; i < test_data.length; i++){
+			// 	key_array[i] = test_data[Object.keys(test_data)[i]];
+			// }
 
-			//accesses first element in dictionary
-			var key_array = [];
-			for (i = 0; i < test_data.length; i++){
-				key_array[i] = test_data[Object.keys(test_data)[i]];
-			}
+			// var occur_array = [];
+			// for (i = 0; i < test_data.length; i++){
+			// 	occur_array[i] = (test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[0]]);
+			// }
 
-			var occur_array = [];
-			for (i = 0; i < test_data.length; i++){
-				occur_array[i] = (test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[0]]);
-			}
+			// var news_sentiment_array = [];
+			// for (i = 0; i < test_data.length; i++){
+			// 	news_sentiment_array[i] = test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]][Object.keys(test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]])[0]];
+			// }
 
-			var news_sentiment_array = [];
-			for (i = 0; i < test_data.length; i++){
-				news_sentiment_array[i] = test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]][Object.keys(test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]])[0]];
-			}
-
-			var twitter_sentiment_array = [];
-			for (i = 0; i < test_data.length; i++){
-				news_sentiment_array[i] = test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]][Object.keys(test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]])[1]];
-			}
+			// var twitter_sentiment_array = [];
+			// for (i = 0; i < test_data.length; i++){
+			// 	news_sentiment_array[i] = test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]][Object.keys(test_data[Object.keys(test_data)[i]][Object.keys(test_data[Object.keys(test_data)[i]])[1]])[1]];
+			// }
 
 			// var key = (test_data[Object.keys(test_data)[0]]);
 			// var occur = (test_data[Object.keys(test_data)[0]][Object.keys(test_data[Object.keys(test_data)[0]])[0]]);
@@ -101,9 +106,10 @@
 			// var news_sentiment = sentiment[Object.keys(sentiment)[0]]
 			// var news_sentiment = test_data[Object.keys(test_data)[0]][Object.keys(test_data[Object.keys(test_data)[0]])[1]][Object.keys(test_data[Object.keys(test_data)[0]][Object.keys(test_data[Object.keys(test_data)[0]])[1]])[0]];
 			// var twitter_sentiment = (test_data[Object.keys(test_data)[0]][Object.keys(test_data[Object.keys(test_data)[0]])[1]][Object.keys(test_data[Object.keys(test_data)[0]][Object.keys(test_data[Object.keys(test_data)[0]])[1]])[1]]);
-			// alert(twitter_sentiment);
+			// alert();
 
-
+			var obj = JSON.parse(test);
+			alert(obj[0].occurrances);
 
 			//set up graphics canvas
 			var canvas_width = 1260; //TODO: set to size of browser
@@ -140,9 +146,9 @@
 			   .data(test_data)
 			   .enter()
 			   .append("circle")
-			   .attr("cx", function(d) {return xScale((test_data[Object.keys(test_data)[0]])[Object.keys((test_data[Object.keys(test_data)[0]]))[1]]);}) //expand on this
+			   .attr("cx", function(d) {return xScale();}) //expand on this
 			   .attr("cy", function(d) {return canvas_height/2;})
-			   .attr("r", function(d) {return rScale(((test_data[Object.keys(test_data)[0]])[Object.keys((test_data[Object.keys(test_data)[0]]))[0]]););})
+			   .attr("r", function(d) {return rScale();})
 			   .attr("fill", function(d) {return "rgba(0, 255, 0, 0.5)"});
 
 			//creating labels for each circle datapoint
