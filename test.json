@@ -1,0 +1,37 @@
+{
+	"iceland": {
+		"occurrances": 64,
+		"sentiment": {
+			"news": 0.03712,
+			"twitter": 0.19788769206349202
+		}
+	},
+	"merkel": {
+		"occurrances": 79,
+		"sentiment": {
+			"news": -0.13024999999999998,
+			"twitter": 0.030155106976839097
+		}
+	},
+	"clinton": {
+		"occurrances": 525,
+		"sentiment": {
+			"news": -0.16593,
+			"twitter": 0.13116291802469132
+		}
+	},
+	"trump": {
+		"occurrances": 710,
+		"sentiment": {
+			"news": 0.015139999999999997,
+			"twitter": -0.02134898257728804
+		}
+	},
+	"interest%20rates": {
+		"occurrances": 263,
+		"sentiment": {
+			"news": 0.24703000000000008,
+			"twitter": 0.13660001285116596
+		}
+	}
+}
