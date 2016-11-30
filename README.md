@@ -1,6 +1,9 @@
 #The Word on the Streets
 
-A data visualisation of sentiment analysis 
+A data visualisation of sentiment analysis from Twitter and Guardian News.
+
+![Sample](sample.jpg?raw=true) 
+![Sample2](sample2.jpg?raw=true)
 
 This project was inspired by our team's interest in political/social triggers in the stock market (the US election was around this time). We came up with the idea of a tool that could help quantify these triggers.
 
